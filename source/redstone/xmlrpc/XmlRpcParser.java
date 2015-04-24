@@ -305,7 +305,12 @@ public abstract class XmlRpcParser extends DefaultHandler
 
     protected String consumeCharData()
     {
-        String data = charData.toString().trim();
+        String data = charData.toString();
+        if ( trimCharData )
+        {
+            data = data.trim();
+        }
+
         charData.setLength( 0 );
         shallProcessCharData = false;
 
@@ -350,6 +355,9 @@ public abstract class XmlRpcParser extends DefaultHandler
 
     /** The accumulated character data from the SAX driver. Is emptied when consumed */
     private StringBuffer charData = new StringBuffer( 128 );
+
+    /** Specifies whether or not we should trim strings in XML-RPC responses */
+    protected boolean trimCharData = true;
 
     /** A cache of parsers so that we don't have to recreate them at every call. TODO Determine if necessary. */
     private static Stack/*<XMLReader>*/ readers = new Stack();

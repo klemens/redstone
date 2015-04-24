@@ -83,6 +83,21 @@ public class XmlRpcClient extends XmlRpcParser implements XmlRpcInvocationHandle
 
 
     /**
+     *  Specify, if strings in XML-RPC responses will be trimmed or not. By default all
+     *  strings are trimmed. This can be useful in legacy cases when you need an exact copy
+     *  of the string the server sent. Note that you should use base64 in new applications
+     *  if you need byte-exact transfers.
+     *
+     *  @param trimCharData Whether or not to trim strings in XML-RPC responses.
+     */
+
+    public void setTrimCharData( boolean trimCharData )
+    {
+        this.trimCharData = trimCharData;
+    }
+
+
+    /**
      *  Sets the HTTP request properties that the client will use for the next invocation,
      *  and any invocations that follow until setRequestProperties() is invoked again. Null
      *  is accepted and means that no special HTTP request properties will be used in any
