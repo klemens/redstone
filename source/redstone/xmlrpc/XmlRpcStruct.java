@@ -19,14 +19,14 @@ package redstone.xmlrpc;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /**
  *  <p>A Struct represents an XML-RPC struct in its Java form. Essentially,
- *  it's just a plain java.util.HashMap with utility methods for extracting
+ *  it's just a plain java.util.LinkedHashMap with utility methods for extracting
  *  members of any of the data types supported by the XML-RPC library.
  *  The class does not introduce any new field members which makes it
- *  no more expensive than a regular HashMap.</p>
+ *  no more expensive than a regular LinkedHashMap.</p>
  *
  *  <p>To extract nested values from the struct, use the new simplified
  *  accessors which perform the casting for you:</p>
@@ -38,7 +38,7 @@ import java.util.HashMap;
  *  @author Greger Olsson
  */
 
-public class XmlRpcStruct extends HashMap/*<String,Object>*/
+public class XmlRpcStruct extends LinkedHashMap/*<String,Object>*/
 {
     /**
      *  Returns the String with the given key from the Struct.
